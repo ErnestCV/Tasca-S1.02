@@ -19,7 +19,7 @@ public class GestioButaques {
         return butaques;
     }
 
-    public void afegirButaca(Butaca butaca) throws ExcepcioButacaOcupada {
+    protected void afegirButaca(Butaca butaca) throws ExcepcioButacaOcupada {
 
         if (cercarButaca(butaca.getFila(), butaca.getSeient()) != -1) {
             throw new ExcepcioButacaOcupada("Aquesta butaca ja està ocupada");
@@ -29,7 +29,7 @@ public class GestioButaques {
         System.out.println("Butaca reservada");
 
     }
-    public void eliminarButaca(int fila, int seient) throws ExcepcioButacaLliure{
+    protected void eliminarButaca(int fila, int seient) throws ExcepcioButacaLliure{
 
         if (cercarButaca(fila, seient) == -1) {
             throw new ExcepcioButacaLliure("Aquesta butaca no està reservada");
@@ -40,7 +40,7 @@ public class GestioButaques {
 
     }
 
-    public int cercarButaca(int fila, int seient){
+    protected int cercarButaca(int fila, int seient){
 
                 return butaques.stream()
                 .filter(butaca -> butaca.equals(butaca, fila, seient))

@@ -20,7 +20,7 @@ public class Cine {
 
     }
 
-    public void demanarDadesInicials() {
+    private void demanarDadesInicials() {
 
         System.out.println("Introudeix el nombre de files del cinema: ");
         nombreFiles = scanner.nextInt();
