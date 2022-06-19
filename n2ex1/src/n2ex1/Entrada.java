@@ -8,9 +8,9 @@ public class Entrada {
     //private static Scanner scanner;
     private static Scanner scanner = new Scanner(System.in);
 
-    public Entrada(Scanner scanner) {
-        this.scanner = scanner;
-    }
+//    public Entrada(Scanner scanner) {
+//        this.scanner = scanner;
+//    }
 
     public static byte llegirByte(String missatge){
 
@@ -156,14 +156,15 @@ public class Entrada {
                 char c = scanner.next().charAt(0);
                 if (c == 's'){
                     b = true;
-                    System.out.println("True");
+                    System.out.println("true");
+                    end = true;
                 } else if (c == 'n') {
                     b = true;
-                    System.out.println("False");
+                    System.out.println("false");
+                    end = true;
                 } else {
                     throw new SiNoException("Valor incorrecte. Introdueix s per indicar \"Sí\" i n per indicar \"No\":");
                 }
-                end = true;
             } catch (SiNoException err) {
                 System.out.println(err.getMessage());
             } catch (InputMismatchException e) {
