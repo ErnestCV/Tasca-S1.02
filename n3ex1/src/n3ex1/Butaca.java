@@ -2,9 +2,9 @@ package n3ex1;
 
 public class Butaca {
 
-    private int fila;
-    private int seient;
-    private String nomReserva;
+    private final int fila;
+    private final int seient;
+    private final String nomReserva;
 
     public Butaca(int fila, int seient, String nomReserva) {
         this.fila = fila;
@@ -24,20 +24,15 @@ public class Butaca {
         return nomReserva;
     }
 
-    public boolean equals(Butaca butaca1, Butaca butaca2){
+    public boolean equals(Butaca butaca, int fila, int seient){
 
-        boolean iguals = false;
-        if (butaca1.fila == butaca2.fila){
-            if (butaca1.seient == butaca2.seient) {
-                iguals = true;
-            }
-        }
-        return iguals;
+        return (butaca.getFila() == fila & butaca.getSeient() == seient);
+
     }
 
     @Override
     public String toString(){
-        return "Fila: " + this.fila + "Seient: " + this.seient + "Persona: " + this.nomReserva;
+        return "Fila: " + this.fila + " Seient: " + this.seient + " Persona: " + this.nomReserva;
     }
 
 }

@@ -1,30 +1,51 @@
 package n3ex1;
 
+import n3ex1.Excepcions.ExcepcioButacaLliure;
+import n3ex1.Excepcions.ExcepcioButacaOcupada;
+
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
 public class GestioButaques {
 
-    private ArrayList<Butaca> butaques;
+    private final List<Butaca> butaques;
 
     public GestioButaques(){
         butaques = new ArrayList<>();
     }
 
-    public ArrayList<Butaca> getButaques(){
+    public List<Butaca> getButaques(){
         return butaques;
     }
 
-    public void afegirButaca(Butaca butaca){
+    public void afegirButaca(Butaca butaca) throws ExcepcioButacaOcupada {
 
+        if (cercarButaca(butaca.getFila(), butaca.getSeient()) != -1) {
+            throw new ExcepcioButacaOcupada("Aquesta butaca ja està ocupada");
+        }
 
+        butaques.add(butaca);
+        System.out.println("Butaca reservada");
+
+    }
+    public void eliminarButaca(int fila, int seient) throws ExcepcioButacaLliure{
+
+        if (cercarButaca(fila, seient) == -1) {
+            throw new ExcepcioButacaLliure("Aquesta butaca no està reservada");
+        }
+
+        butaques.remove(cercarButaca(fila, seient));
+        System.out.println("Butaca eliminada");
 
     }
 
-    public void eliminarButaca(Butaca butaca){
+    public int cercarButaca(int fila, int seient){
 
-    }
-
-    public void cercarButaca(){
+                return butaques.stream()
+                .filter(butaca -> butaca.equals(butaca, fila, seient))
+                .findFirst()
+                .map(butaques::indexOf).orElse(-1);
 
     }
 
