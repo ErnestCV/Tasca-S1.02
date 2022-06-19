@@ -2,7 +2,7 @@ package n1ex1;
 
 public class Producte {
 
-    private String nom;
+    private final String nom;
     protected double preu;
 
     public Producte(String nom, double preu) {

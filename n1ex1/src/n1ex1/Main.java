@@ -1,21 +1,22 @@
 package n1ex1;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
 
     public static void main(String[] args){
 
-//        Producte p1 = new Producte("Poma", 2.5);
-//        Producte p2 = new Producte("Pera", 3);
-//        Producte p3 = new Producte("Taronja", 1);
-//
-//        ArrayList<Producte> productes = new ArrayList<>();
-//        productes.add(p1);
-//        productes.add(p2);
-//        productes.add(p3);
+        Producte p1 = new Producte("Poma", 2.5);
+        Producte p2 = new Producte("Pera", 3);
+        Producte p3 = new Producte("Taronja", 1);
 
-        ArrayList<Producte> productes = new ArrayList<>(); //ArrayList buit
+        ArrayList<Producte> productes = new ArrayList<>();
+        productes.add(p1);
+        productes.add(p2);
+        productes.add(p3);
+
+        //List<Producte> productes = new ArrayList<>(); //ArrayList buit
 
         //Codi necessari per generar i capturar una excepció del tipus IndexOutOfBoundsException
         try {

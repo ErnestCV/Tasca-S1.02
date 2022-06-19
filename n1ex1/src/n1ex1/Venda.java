@@ -2,26 +2,24 @@ package n1ex1;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Venda {
 
-    private ArrayList<Producte> productes;
+    private final List<Producte> productes;
     private double total = 0;
 
-    public Venda(ArrayList<Producte> productes) {
+    public Venda(List<Producte> productes) {
         this.productes = productes;
     }
 
-    //Codi necessari per generar i capturar una excepció del tipus IndexOutOfBoundsException
-    public double calcularTotal(ArrayList<Producte> productes) throws VendaBuidaException{
+    public void calcularTotal(List<Producte> productes) throws VendaBuidaException{
 
         if (productes.isEmpty()){
             throw new VendaBuidaException("Per fer una venda primer has d'afegir productes");
         }
 
         total = productes.stream().mapToDouble(Producte::getPreu).sum();
-
-        return total;
 
     }
 
